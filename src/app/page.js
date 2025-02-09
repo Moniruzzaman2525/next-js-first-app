@@ -1,3 +1,4 @@
+import ProductCard from '@/components/Products/ProductCard';
 import React from 'react';
 
 const HomePage = async () => {
@@ -6,8 +7,16 @@ const HomePage = async () => {
   const products = await res.json()
   console.log(products)
   return (
-    <div>Home page
+    <div>
+      <h1 className='text-center text-4xl my-5'>Data Fetching, Caching and Revalidating</h1>
 
+      <div className='grid grid-cols-3 gap-8 w-[90%] mx-auto mt-10'>
+        {
+          products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))
+        }
+      </div>
     </div>
   );
 };

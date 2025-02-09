@@ -1,8 +1,15 @@
+import React from 'react';
 
-export default function Home() {
+const HomePage = async () => {
+
+  const res = await fetch('http://localhost:5000/products')
+  const products = await res.json()
+  console.log(products)
   return (
-    <div>
-      <h1 className="text-4xl">Hello world</h1>
+    <div>Home page
+
     </div>
   );
-}
+};
+
+export default HomePage;
